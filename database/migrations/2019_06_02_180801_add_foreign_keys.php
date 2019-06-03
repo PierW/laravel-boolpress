@@ -17,10 +17,12 @@ class AddForeignKeys extends Migration
         {
           $table ->foreign('category_id', 'category')
                 ->references('id')
-                ->on('categories');
+                ->on('categories')
+                ->onDelete('cascade');
           $table ->foreign('post_id', 'post')
                 ->references('id')
-                ->on('posts');
+                ->on('posts')
+                ->onDelete('cascade');
         });
     }
 
