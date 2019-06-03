@@ -10662,3 +10662,21 @@ a.text-dark:focus {
   }
 }
 
+body {
+  text-align: center;
+}
+
+table {
+  margin: auto;
+  width: 50%;
+}
+
+table thead {
+  background-color: #6cb2eb;
+  font-weight: bold;
+}
+
+table tr:nth-child(odd) {
+  background-color: #cecece90;
+}
+

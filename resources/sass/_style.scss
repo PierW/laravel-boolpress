@@ -1,0 +1,17 @@
+body{
+  text-align: center;
+}
+
+table{
+  margin: auto;
+  width: 50%;
+
+  thead{
+    background-color: $cyan;
+    font-weight: bold;
+  }
+
+  tr:nth-child(odd){
+    background-color: #cecece90;
+  }
+}

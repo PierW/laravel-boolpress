@@ -11,6 +11,5 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'HomeController@getLast5Post')->name('home');
+Route::get('/category/{type}', 'CategoryController@getPostsByCategory')->name('posts.by.category');
