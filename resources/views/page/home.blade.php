@@ -1,6 +1,7 @@
 @extends('layout.template')
 
 @section('content')
+<a href="{{route('create.new.post')}}">CREA NUOVO POST</a>
 <table>
   <thead>
     <td>Titolo</td>
