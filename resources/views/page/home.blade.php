@@ -11,7 +11,7 @@
   <tbody>
     @foreach($posts as $post)
       <tr>
-        <td>{{ $post -> title }}</td>
+        <td><a href="{{route('show.content', $post -> id)}}">{{ $post -> title }}</a></td>
         <td>
           {{ $post -> categories -> count()}}:<br>
           @foreach($post -> categories as $category)

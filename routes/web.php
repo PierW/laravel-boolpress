@@ -15,3 +15,4 @@ Route::get('/', 'HomeController@getLast5Post')->name('home');
 Route::get('/category/{type}', 'CategoryController@getPostsByCategory')->name('posts.by.category');
 Route::get('/admin/post/new', 'AdminController@createNewPost')->name('create.new.post');
 Route::post('/admin/post/new', 'AdminController@saveNewPost')->name('save.new.post');
+Route::get('/post/{id}', 'PostController@getContent')->name('show.content');
