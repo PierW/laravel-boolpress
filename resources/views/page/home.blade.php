@@ -7,6 +7,7 @@
     <td>Titolo</td>
     <td>Categorie</td>
     <td>Updated At</td>
+    <td>Modifica</td>
   </thead>
   <tbody>
     @foreach($posts as $post)
@@ -21,6 +22,7 @@
           @endforeach
         </td>
         <td>{{ $post -> updated_at}}</td>
+        <td><a href="{{route('edit.post', $post -> id)}}"><i class="fas fa-edit"></i> </a></td>
       </tr>
     @endforeach
   </tbody>

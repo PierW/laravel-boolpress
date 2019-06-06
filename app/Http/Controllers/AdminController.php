@@ -31,4 +31,13 @@ class AdminController extends Controller
       return redirect('/')
             ->with('success', 'Post inserito con <b>successo</b>');
     }
+
+
+    // Inizio funzioni per modifica POST
+
+    public function editPost($id)
+    {
+      dd($id);
+    }
+    // Fine funzioni per modifica post
 }
