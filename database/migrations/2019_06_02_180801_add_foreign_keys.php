@@ -13,6 +13,13 @@ class AddForeignKeys extends Migration
      */
     public function up()
     {
+        Schema::table('posts', function(Blueprint $table)
+        {
+          $table ->foreign('author_id', 'author')
+                ->references('id')
+                ->on('authors')
+                ->onDelete('cascade');
+        });
         Schema::table('category_post', function(Blueprint $table)
         {
           $table ->foreign('category_id', 'category')
@@ -33,6 +40,10 @@ class AddForeignKeys extends Migration
      */
     public function down()
     {
+        Schema::table('posts', function(Blueprint $table){
+
+          $table->dropForeign('author');
+        });
         Schema::table('category_post', function(Blueprint $table){
 
           $table->dropForeign('category');

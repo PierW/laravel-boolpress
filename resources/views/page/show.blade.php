@@ -11,7 +11,7 @@
     <tbody>
       <tr>
         <td>{{$post -> title}}</td>
-        <td>{{$post -> content}}</td>
+        <td>{!!$post -> content!!}</td>
         <td>{{$post -> updated_at}}</td>
       </tr>
     </tbody>

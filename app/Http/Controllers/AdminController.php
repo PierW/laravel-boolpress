@@ -37,7 +37,21 @@ class AdminController extends Controller
 
     public function editPost($id)
     {
-      dd($id);
+      $post = Post::findOrFail($id);
+      $categories = Category::all();
+      $myCategories = $post -> categories;
+      return view('page.edit', compact('post', 'categories', 'myCategories'));
+    }
+
+    public function storePost(PostRequest $request, $id)
+    {
+      // dd($request -> all());
+      // dd($id);
+      $validateData = $request -> validated();
+      $post = Post::whereid($id)->update($validateData);
+      // dd($validateData);
+      return redirect("/post/$id")
+          ->with('success', "Post <b>$id</b> aggiornato correttamente!");
     }
     // Fine funzioni per modifica post
 }

@@ -14,6 +14,7 @@ class DatabaseSeeder extends Seeder
         $this->call([
           // WARNING: E' importante mettere prima Category poi Post
           CategoryTableSeeder::class,
+          AuthorSeeder::class,
           PostTableSeeder::class
         ]);
     }
