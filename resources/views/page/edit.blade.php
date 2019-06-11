@@ -16,12 +16,17 @@
   @foreach($categories as $category)
     <input type="checkbox" name="categories[]" value="{{$category -> id}}"
     @foreach ($myCategories as $myCategory)
-      @if ($category -> type == $myCategory -> type)  
+      @if ($category -> type == $myCategory -> type)
         checked
       @endif
     @endforeach
     >{{ $category -> type}}<br>
   @endforeach
+  <select name="author_id">
+    @foreach ($authors as $author)
+      <option value="{{$author -> id }}">{{ $author -> username}}</option>
+    @endforeach
+  </select>
   <button type="submit">SALVA</button>
 </form>
 @stop

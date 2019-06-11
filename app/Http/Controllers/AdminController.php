@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\PostRequest;
 use App\Category;
 use App\Post;
+use App\Author;
 
 class AdminController extends Controller
 {
@@ -39,17 +40,25 @@ class AdminController extends Controller
     {
       $post = Post::findOrFail($id);
       $categories = Category::all();
+      $authors = Author::all();
       $myCategories = $post -> categories;
-      return view('page.edit', compact('post', 'categories', 'myCategories'));
+      return view('page.edit', compact('post', 'categories', 'myCategories', 'authors'));
     }
+
+
 
     public function storePost(PostRequest $request, $id)
     {
       // dd($request -> all());
       // dd($id);
       $validateData = $request -> validated();
-      $post = Post::whereid($id)->update($validateData);
+      // $post = Post::whereid($id)->update($validateData); ----> NaM non funziona quindi fare:
+      $post = Post::findOrFail($id); // La fndOrFails tiene traccia delle relazioni! (Mi dava errore Array to string conversion perchè le categorie erano in un array)
+      $post -> update($validateData);
       // dd($validateData);
+      $categoriesIds = $validateData['categories'];
+      $categories = Category::findOrFail($categoriesIds);
+      $post -> categories() -> sync($categories);
       return redirect("/post/$id")
           ->with('success', "Post <b>$id</b> aggiornato correttamente!");
     }

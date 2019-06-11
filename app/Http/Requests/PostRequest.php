@@ -26,7 +26,8 @@ class PostRequest extends FormRequest
         return [
             "title" => "required|min:5",
             "content" => "required|min:20",
-            "categories" => "required"
+            "categories" => "required",
+            "author_id" => "required"
         ];
     }
 }
